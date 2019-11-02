@@ -1,0 +1,13 @@
+{% extends 'app/base.html' %}
+{% block body_block %}
+{% if register %}
+<h1>Thanks for registering</h1>
+{% else %}
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{form_user.as_p}}
+{{form.as_p}}
+<input type="submit" value="Upload">
+</form>
+{% endif %}
+{% endblock body_block %}
